@@ -13,7 +13,12 @@ body {
     max-width: 1103px;
     gap: 10px;
     margin: auto;
-    grid-template-rows: repeat(4, 168px);
+    grid-template-areas:
+        "shop really buy obraz"
+        "shop big big obraz"
+        "humor big big bubbles"
+        "chose chose memory bubbles";
+        grid-template-rows: repeat(4, 168px);
     grid-template-columns: repeat(4, 1fr);
     padding: 50px;
 }
@@ -33,48 +38,59 @@ body {
     }
 
     &:is(.shop) {
+        grid-area: shop;
         overflow: hidden;
         background-image: url('pic/fish1.png');
     }
 
     &:is(.humor) {
+        grid-area: humor;
         background-image: url(pic/humor.png);
     }
 
     &:is(.buy) {
+        grid-area: buy;
         background: url('pic/buy.png'), linear-gradient(180deg, #D5D5D5 0%, #9ABCE4 100%);
     }
 
     &:is(.chose) {
+        grid-area: chose;
         background: url('pic/vybor.png'), linear-gradient(100deg, #D5D5D5 1.01%, #9ABCE4 84.75%);
         background-repeat: no-repeat;
     }
 
     &:is(.memory) {
+        grid-area: memory;
         background-image: url(pic/memory.png);
         background-position: bottom;
     }
 
     &:is(.obraz) {
+        grid-area: obraz;
         background-image: url(pic/obraz.png);
     }
 
     &:is(.bubbles) {
+        grid-area: bubbles;
         background: url('pic/bubbles.png'), linear-gradient(180deg, #D5D5D5 0%, #9ABCE4 100%);
         background-repeat: no-repeat;
     }
+
     &:is(.big) {
+        grid-area: big;
         background-image: url(pic/big.png);
         align-items: center;
         justify-content: center;
         overflow: hidden;
     }
+
     @media (max-width: 900px) {
 
         &:is(.ipad-obraz) {
             background-image: url('pic/obraz2.png');
         }
     }
+
     @media(max-width: 500px) {
 
         &:is(.mobile-obraz) {
@@ -84,74 +100,19 @@ body {
     }
 }
 
-.shop {
-    grid-row: 1 / span 2;
-    grid-column: 1 / span 1;
-}
-
-.humor {
-    grid-row: 3 / span 1;
-    grid-column: 1 / span 1;
-}
-
 .really {
-    grid-row: 1 / span 1;
-    grid-column: 2 / span 1;
-}
-
-.buy {
-    grid-row: 1 / span 1;
-    grid-column: 3 / span 1;
-}
-
-.big {
-    grid-row: 2 / span 2;
-    grid-column: 2 / span 2;
-}
-
-.chose {
-    grid-row: 4 / span 1;
-    grid-column: 1 / span 2;
-}
-
-.memory {
-    grid-row: 4 / span 1;
-    grid-column: 3 / span 1;
-}
-
-.obraz {
-    grid-row: 1 / span 2;
-    grid-column: 4 / span 1;
-}
-
-.bubbles {
-    grid-row: 3 / span 2;
-    grid-column: 4 / span 1;
+    grid-area: really;
 }
 
 .text {
-    display: flex;
     padding: 16px;
-    align-items: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
-    font-size: 1.5vw;
 
     &:is(.gray) {
         color: #6D6D6D;
+        display: flex;
         justify-content: flex-end;
-    }
-
-    @media (min-width: 1536px) {
-        font-size: 25px;
-    }
-
-    @media (max-width: 900px) {
-        font-size: 2.5vw;
-    }
-
-    @media (max-width: 500px) {
-        font-size: 3.5vw;
     }
 }
 
@@ -160,16 +121,15 @@ body {
         max-width: 658px;
         grid-template-rows: repeat(8, 140px);
         grid-template-columns: repeat(3, 1fr);
-    }
-
-    .obraz {
-        grid-row: 5 / span 2;
-        grid-column: 1 / span 3;
-    }
-
-    .bubbles {
-        grid-row: 7 / span 2;
-        grid-column: 1 / span 3;
+        grid-template-areas: 
+            "shop really buy"
+            "shop big big"
+            "humor big big"
+            "chose chose memory"
+            "obraz obraz obraz"
+            "obraz obraz obraz"
+            "bubbles bubbles bubbles"
+            "bubbles bubbles bubbles";
     }
 }
 
@@ -179,45 +139,17 @@ body {
         gap: 8px;
         grid-template-rows: repeat(11, 116px);
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .shop,
-    .humor {
-        grid-column: 1 / span 2;
-    }
-
-    .really {
-        grid-row: 4 / span 1;
-        grid-column: 1 / span 1;
-    }
-
-    .buy {
-        grid-row: 4 / span 1;
-        grid-column: 2 / span 1;
-    }
-
-    .big {
-        grid-row: 5 / span 2;
-        grid-column: 1 / span 2;
-    }
-
-    .chose {
-        grid-row: 7 / span 1;
-        grid-column: 1 / span 1;
-    }
-
-    .memory {
-        grid-row: 7 / span 1;
-        grid-column: 2 / span 1;
-    }
-
-    .obraz {
-        grid-row: 8 / span 2;
-        grid-column: 1 / span 2;
-    }
-
-    .bubbles {
-        grid-row: 10 / span 2;
-        grid-column: 1 / span 2;
+        grid-template-areas: 
+            "shop shop"
+            "shop shop"
+            "humor humor"
+            "really buy"
+            "big big"
+            "big big"
+            "chose memory"
+            "obraz obraz"
+            "obraz obraz"
+            "bubbles bubbles"
+            "bubbles bubbles";
     }
 }
